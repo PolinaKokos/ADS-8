@@ -1,24 +1,20 @@
 // Copyright 2021 NNTU-CS
 #include "bst.h"
-
 #include <algorithm>
 #include <cctype>
 #include <fstream>
 #include <iostream>
 #include <string>
 #include <utility>
-
 bool isWordChar(char ch) {
     return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
 }
-
 char toLowerChar(char ch) {
     if (ch >= 'A' && ch <= 'Z') {
         return ch + ('a' - 'A');
     }
     return ch;
 }
-
 void makeTree(BST<std::string>& tree, const char* filename) {
     std::ifstream file(filename);
     if (!file) {
@@ -42,7 +38,6 @@ void makeTree(BST<std::string>& tree, const char* filename) {
     }
     file.close();
 }
-
 void sortNodesByFrequency(BST<std::string>::Node** nodes, int size) {
     for (int i = 0; i < size - 1; i++) {
         for (int j = 0; j < size - i - 1; j++) {
@@ -52,7 +47,6 @@ void sortNodesByFrequency(BST<std::string>::Node** nodes, int size) {
         }
     }
 }
-
 void printFreq(BST<std::string>& tree) {
     int size = 0;
     auto nodes = tree.getNodes(size);
