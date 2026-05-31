@@ -1,5 +1,4 @@
 // Copyright 2021 NNTU-CS
-// Copyright 2021 NNTU-CS
 #include "bst.h"
 
 #include <algorithm>
@@ -9,7 +8,7 @@
 #include <string>
 #include <utility>
 
-bool isLatinLetter(char ch) {
+bool isWordChar(char ch) {
     return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
 }
 
@@ -29,13 +28,13 @@ void makeTree(BST<std::string>& tree, const char* filename) {
     std::string word;
     char ch;
     while (file.get(ch)) {
-        if (isLatinLetter(ch)) {
+        if (isWordChar(ch)) {
             word += toLowerChar(ch);
         } else {
             if (!word.empty()) {
                 tree.insert(word);
-                word.clear();
             }
+            word.clear();
         }
     }
     if (!word.empty()) {
