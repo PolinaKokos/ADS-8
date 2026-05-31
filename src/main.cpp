@@ -1,13 +1,10 @@
 // Copyright 2021 NNTU-CS
 #include "bst.h"
-
 #include <chrono>
 #include <iostream>
 #include <string>
-
 void makeTree(BST<std::string>& tree, const char* filename);
 void printFreq(BST<std::string>& tree);
-
 int main() {
     std::cout << "=== Word Frequency Analysis of 'War and Peace' ===" << std::endl;
     std::cout << "Loading and analyzing the text file..." << std::endl;
